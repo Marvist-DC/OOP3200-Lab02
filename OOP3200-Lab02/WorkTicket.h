@@ -34,16 +34,26 @@ public:
 	WorkTicket(int workTicketNumber, string clientID, int day, int month, int year, string issueDescription);
 
 	/* Copy Constructor*/
-	//WorkTicket(const WorkTicket& ticket_2);
+	WorkTicket(const WorkTicket& ticket_2);
 
 	/* Operator Overloads */
 
-	//bool operator==(const WorkTicket& other_ticket) const;
+	operator string();
+
+	// Overload operator to compare two WorkTicket objects
+	bool operator==(const WorkTicket& other_ticket) const;
+
+	// Overload operator to assign a WorkTicket to another WorkTicket
+	WorkTicket operator=(const WorkTicket &new_work_ticket);
+
+	// Overload operators for retrieving class information and to output/display class information
+	friend ostream& operator<<(ostream& out, const WorkTicket& work_ticket);
+	friend istream& operator>>(istream& in, WorkTicket& work_ticket);
 
 	/* Accessors */
 	int GetWorkTicketNumber() const { return objWorkTicketNumber; }
 	string GetClientID() const { return objClientID; }
-	string GetDate(int myDay, int myMonth, int year) const;
+	string GetDate() const;
 	string GetIssueDescription() const { return objIssueDescription; }
 	void ShowWorkTicket() const;
 

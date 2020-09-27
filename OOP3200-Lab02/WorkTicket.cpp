@@ -29,26 +29,74 @@ WorkTicket::WorkTicket(int workTicketNumber, string clientID, int day, int month
 	SetIssueDescription(issue);
 }
 
-//// Copy constuctor definition
-//WorkTicket::WorkTicket(const WorkTicket& ticket_2)
-//{
-//	SetWorkTicketNumber(ticket_2.GetWorkTicketNumber());
-//	SetClientID(ticket_2.GetClientID());
-//	SetDate(ticket_2.GetDate());
-//	SetIssueDescription(ticket_2.GetIssueDescription());
-//}
+// Copy constuctor definition
+WorkTicket::WorkTicket(const WorkTicket& ticket_2)
+{
+	objWorkTicketNumber = ticket_2.objWorkTicketNumber;
+	objClientID = ticket_2.objClientID;
+	objDay = ticket_2.objDay;
+	objMonth = ticket_2.objMonth;
+	objYear = ticket_2.objYear;
+	objIssueDescription = ticket_2.objIssueDescription;
 
-//// == operator for WorkTicket comparison
-//bool WorkTicket::operator==(const WorkTicket& other_ticket) const
-//{
-//	return((GetWorkTicketNumber() == other_ticket.GetWorkTicketNumber()) && (GetClientID() == other_ticket.GetClientID())
-//		&& (GetDate() == other_ticket.GetDate()) && (GetIssueDescription() == other_ticket.GetIssueDescription()));
-//}
+	cout << "\nA WorkTicket object was COPIED.\n";
+}
+
+WorkTicket::operator string()
+{
+	stringstream converted_ticket;
+	converted_ticket << "Work Ticket #" << objWorkTicketNumber << " - "
+					 << objClientID << " (" << objDay << "/" << objMonth 
+					 << "/" << objYear << "): " << objIssueDescription;
+	return converted_ticket.str();
+}
+
+// == operator for WorkTicket comparison
+bool WorkTicket::operator==(const WorkTicket& other_ticket) const
+{
+	return((GetWorkTicketNumber() == other_ticket.GetWorkTicketNumber()) && (GetClientID() == other_ticket.GetClientID())
+		&& (GetDate() == other_ticket.GetDate()) && (GetIssueDescription() == other_ticket.GetIssueDescription()));
+}
+
+// = operator to assign a WorkTicket to another WorkTicket
+WorkTicket WorkTicket::operator=(const WorkTicket &new_work_ticket)
+{
+	
+	objWorkTicketNumber = new_work_ticket.objWorkTicketNumber;
+	objClientID = new_work_ticket.objClientID;
+	objDay = new_work_ticket.objDay;
+	objMonth = new_work_ticket.objMonth;
+	objYear = new_work_ticket.objYear;
+	objIssueDescription = new_work_ticket.objIssueDescription;
+	cout << "\nA WorkTicket Object was ASSIGNED.\n";
+	return *this;
+}
+
+// << operator to displays all objects attributes neatly on the console
+ostream& operator<<(ostream& out, const WorkTicket& work_ticket)
+{
+	work_ticket.ShowWorkTicket();
+	return out;
+}
+
+// >> operator allow user to enter all of the attributes of a WorkTicket object
+istream& operator>>(istream& in, WorkTicket& work_ticket)
+{
+	in >> work_ticket.objWorkTicketNumber;
+	in >> work_ticket.objClientID;
+	in >> work_ticket.objDay;
+	in >> work_ticket.objMonth;
+	in >> work_ticket.objYear;
+	in >> work_ticket.objIssueDescription;
+
+	return in;
+}
+
 
 /* Accessor definition */
 
 // Gets the date from the users input
-string WorkTicket::GetDate(int objDay, int objMonth, int objYear) const
+string WorkTicket::GetDate() const
 {
 	// Create a string stream to display the date ticket was created
 	stringstream dateReturn;
@@ -63,6 +111,7 @@ void WorkTicket::ShowWorkTicket() const
 		<< setw(15) << "Client ID: " << objClientID << endl
 		<< setw(15) << "Ticket Date: " << objDay << "/" << objMonth << "/" << objYear << endl
 		<< setw(15) << "Issue: " << objIssueDescription << endl;
+
 }
 
 /* Mutators definition*/
