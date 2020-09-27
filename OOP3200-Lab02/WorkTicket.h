@@ -3,7 +3,7 @@
  * Date: September 27, 2020
  * Duy Tan Vu			- 100750366
  * Domenic Catalano		- 100556614
- * Header file for Work Ticket class
+ * Header file for WorkTicket class
  */
 
 #pragma once

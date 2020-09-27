@@ -4,7 +4,7 @@
  * Duy Tan Vu          - 100750366
  * Domenic Catalano    - 100556614
  * This is the header of functions used to validate numbers
- * These two functions are allowed to use for OOP3200 - Lab 01
+ * These two functions are allowed to use for OOP3200 - Lab 02
  * Reference: DC Connect OOP3200 materials on Week 01 Content
  */
 

@@ -4,8 +4,8 @@
  * Date: September 27, 2020
  * Description: This is a modified version of lab 1 with the addition of
 				 operators and data type conversions
- * Authors: Duy Tan Vu          - 100750366
- *          Domenic Catalano    - 100556614
+ * Authors:	 Duy Tan Vu          - 100750366
+ *			 Domenic Catalano    - 100556614
  * OOP3200 - Lab 02: Class Operators and Data Type Conversions
  */
 
