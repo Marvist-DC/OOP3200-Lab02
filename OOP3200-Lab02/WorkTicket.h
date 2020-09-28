@@ -11,6 +11,8 @@
 #ifndef __WORKTICKET__
 #define __WORKTICKET__
 
+#include "MyConsoleInput.h"
+
 #include <iostream> 		// cin, cout
 #include <iomanip>			// fixed, setprecision()
 #include <string>			// String data type

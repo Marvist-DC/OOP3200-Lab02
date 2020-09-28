@@ -23,105 +23,37 @@ using namespace std;
 
 int main()
 {
-	// Program banner
-	cout << "================" << endl
-		<< "WorkTicket Class" << endl
-		<< "================" << endl;
+	// Declared object for purpose of 'existing object'
+	WorkTicket ticket1(1001, "1002", 27, 11, 2020, "test");		// Declared object for purpose of 'existing object'
+	WorkTicket userTicket;										// Object to hold user input
 
-	// VARRIABLE DECLARATIONS & ARRAY
-	//WorkTicket workTicketObject[3];
-	//string clientID;
-	//int ticketNumber;
-	//int ticketDay;
-	//int ticketMonth;
-	//int ticketYear;
-	//string issue;
-	//bool result;		// Flag of the SetWorkTicket() function
+	// Copy constructor used to declare a new object based on an existing one
+	WorkTicket ticket2(ticket1);
 
-	// CONSTANT DECLARATIONS
-	//const int MIN_TICKET_NUMBER = 1;
-	//const int MIN_DAY = 1;
-	//const int MAX_DAY = 31;
-	//const int MIN_MONTH = 1;
-	//const int MAX_MONTH = 12;
-	//const int MIN_YEAR = 2000;
-	//const int MAX_YEAR = 2099;
+	// Typecasting an object as a string to output to the console
+	string ticketAsString = string(ticket1);
+	cout << ticketAsString;
 
-	// Try-catch block to catch an exception
-	// Try-catch block to display error message
-	//try
-	//{
-	//	// For loop will interate 3 times to fill array
-	//	for (int i = 0; i < 2; ++i)
-	//	{
-	//		// Prompt for ticket number
-	//		cout << "\nPlease enter a Work Ticket Number [" << i + 1 << "]: ";
-	//		ticketNumber = ConsoleInput::ReadInteger(MIN_TICKET_NUMBER);
+	// User input attributes for an object
+	cout << "\nEnter attributes for a ticket: ";
+	cin >> userTicket;
 
-	//		// Prompt for client ID
-	//		cout << "Please enter a Client ID Number [" << i + 1 << "]: ";
-	//		cin >> clientID;
+	// Test if the two objects are equal
+	if (ticket1 == userTicket)
+	{
+		cout << "The two tickets match!";
+	}
+	else
+	{
+		cout << "The two tickets do NOT match!";
+	}
 
-	//		// Prompt for day ticket created
-	//		cout << "Please enter ticket day [" << i + 1 << "]: ";
-	//		ticketDay = ConsoleInput::ReadInteger(MIN_DAY, MAX_DAY);
+	// Assigning an object to another existing object
+	ticket1 = userTicket;
 
-	//		// Prompt for month ticket created
-	//		cout << "Please enter ticket month [" << i + 1 << "]: ";
-	//		ticketMonth = ConsoleInput::ReadInteger(MIN_MONTH, MAX_MONTH);
 
-	//		// Prompt for year ticket created
-	//		cout << "Please enter ticket year [" << i + 1 << "]: ";
-	//		ticketYear = ConsoleInput::ReadInteger(MIN_YEAR, MAX_YEAR);
-
-	//		// Prompt for description of the issue
-	//		cout << "Please enter your issue description [" << i + 1 << "]: ";
-	//		cin >> issue;
-
-	//		// If all parameters are valid, return true and display a message. Otherwise return false
-	//		result = workTicketObject[i].SetWorkTicket(ticketNumber, clientID, ticketDay, ticketMonth, ticketYear, issue);
-	//		if (!result)
-	//		{
-	//			cout << "Data is invalid, please try again.";
-	//		}
-	//		else
-	//		{
-	//			cout << "Data was successfully entered.\n";
-	//		}
-	//	}
-
-	//	// Output summary of the data to the user
-	//	//cout << "\n== Data Summary ==\n";
-	//	//for (int i = 0; i < 3; ++i)
-	//	//{
-	//	//	workTicketObject[i].ShowWorkTicket();
-	//	//}
-
-	//}
-	//// Display exception if invalid data was entered
-	//catch (const exception & e)
-	//{
-	//	// Show error message
-	//	cerr << e.what();
-	//}
-
-	WorkTicket obj1(123, "abc", 1, 2, 2000, "don't know");
-	WorkTicket obj2;
-	obj2 = obj1;
-
-	WorkTicket another_ticket;
-	cout << "\nEnter another ticket: ";
-	cin >> another_ticket;
-	cout << "You entered: " << another_ticket << endl;
-	//cout << "is obj1 = obj2?" << to_string(obj1 == obj2) << endl;
-	//// Copy an object based on existing object
-	//WorkTicket copy_work_ticket = workTicketObject[1];
-
-	//// Typecast the object as a a string and ouput it using cout
-	//string ticketAsString = string(workTicketObject[1]);
-	//cout << ticketAsString;
-	//cout << "1st ticket equal to 2nd ticket: " << to_string(workTicketObject[1] == workTicketObject[2]) << endl;
-
+	// Output an object using cout
+	userTicket.ShowWorkTicket();
 
 	// End of the program
 	cout << endl << endl;
